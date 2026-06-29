@@ -1,0 +1,32 @@
+{
+  "name": "smart-transaction-stack",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Advanced Solana smart transaction stack for Jito bundle submission, lifecycle tracking, and AI-assisted operational decisions.",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "demo": "tsx src/index.ts run --mode dry-run --count 10 --inject-failures 2",
+    "analyze-log": "tsx src/index.ts analyze --log logs/lifecycle.jsonl",
+    "wallet:create": "tsx src/index.ts wallet create --path keys/operator.json",
+    "wallet:address": "tsx src/index.ts wallet address --path keys/operator.json",
+    "devnet:airdrop": "tsx src/index.ts wallet airdrop --path keys/operator.json --rpc https://api.devnet.solana.com --sol 2"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.98.0",
+    "@triton-one/yellowstone-grpc": "^5.0.9",
+    "bs58": "^6.0.0",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.7",
+    "openai": "^4.77.0",
+    "tsx": "^4.19.2",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  }
+}
