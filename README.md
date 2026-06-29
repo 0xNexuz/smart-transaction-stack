@@ -9,6 +9,8 @@ the AI decision trail behind tip and retry decisions.
 
 ## Features
 
+- Environment readiness diagnostics.
+- Judge-facing demo command and evidence verifier.
 - Slot streaming through a Yellowstone/Geyser adapter when credentials are configured.
 - Leader snapshot collection from Solana RPC.
 - Jito bundle construction with dynamic tip account selection.
@@ -32,6 +34,42 @@ npm run check
 ```
 
 For exact devnet rehearsal and mainnet proof steps, see [docs/RUNBOOK.md](docs/RUNBOOK.md).
+
+For submission honesty and proof status, see:
+
+- [docs/CURRENT_STATE.md](docs/CURRENT_STATE.md)
+- [docs/SUBMISSION.md](docs/SUBMISSION.md)
+- [docs/LANDING_INVESTIGATION.md](docs/LANDING_INVESTIGATION.md)
+- [docs/SECURITY.md](docs/SECURITY.md)
+
+## Judge Demo
+
+```bash
+npm run judge:demo
+```
+
+This runs environment diagnostics, a 10-entry dry-run with 2 injected failures, log
+analysis, evidence verification, and a Markdown lifecycle summary.
+
+## Evidence Verification
+
+Dry-run verification:
+
+```bash
+npm run verify:evidence
+```
+
+Mainnet verification:
+
+```bash
+npm run dev -- verify --log logs/lifecycle.jsonl --require-real true
+```
+
+Readable summary:
+
+```bash
+npm run summary
+```
 
 ## Dry-Run Demo
 
